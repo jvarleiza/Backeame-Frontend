@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <ngb-carousel>
+            <ng-template ngbSlide *ngFor="let slider of sliders">
+                <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                <div class="carousel-caption">
+                    <h3>{{ slider.label | translate }}</h3>
+                    <p>{{slider.text}}</p>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
+
+<app-tinder></app-tinder>
+
+<br>
+<div class="row">
+    <ngb-tabset >
+
+        <ngb-tab title="{{'Populares'| translate}}">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <app-mini-project *ngFor="let projectT of trending" [project]="projectT"></app-mini-project>
+                </div>
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="{{ 'Casi Financiado' | translate}}">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <app-mini-project *ngFor="let projectE of nearlyFunded" [project]="projectE"></app-mini-project>
+                </div>
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="{{ 'Recien Lanzados' | translate}}">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <app-mini-project *ngFor="let projectS of justLaunched" [project]="projectS"></app-mini-project>
+                </div>
+            </ng-template>
+        </ngb-tab>
+
+        <ngb-tab title="{{ 'Recomendados' | translate}}">
+            <ng-template ngbTabContent>
+                <div class="row">
+                    <app-mini-project *ngFor="let projectB of recommended" [project]="projectB"></app-mini-project>
+                </div>
+            </ng-template>
+        </ngb-tab>
+
+    </ngb-tabset>
+</div>

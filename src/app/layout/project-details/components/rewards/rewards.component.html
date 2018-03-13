@@ -1,0 +1,28 @@
+<div *ngIf="projectFull" class="container">
+  <div class="rewards-page-header">
+    <h1>{{projectFull.title}}</h1>
+    <p>Por {{projectFull.entrepreneur}}</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Backea al Proyecto</h2>
+      <app-project-reward *ngFor="let reward of projectFull.rewards" [projectFull]="projectFull" [reward]="reward"></app-project-reward>
+    </div>
+    <div class="col-md-4">
+      <p><strong>Backeame is not a store.</strong></p>
+      <p>It's a way to bring creative projects to life. Kickstarter does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
+      <a href>Leer politicas de Backeame</a>
+      <br>
+      <p>PREGUNTAS FRECUENTES</p>
+      <ul>
+        <li><a href> How do I pledge?</a></li>
+        <li><a href> When is my card charged?</a></li>
+        <li><a href> So I'm only charged if funding succeeds?</a></li>
+        <li><a href> What can others see about my pledge?</a></li>
+        <li><a href> What if I want to change my pledge?</a></li>
+        <li><a href> If this project is funded, how do I get my reward?</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

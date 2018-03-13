@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="profile-page-header">
+    <div>
+      <img class="avatar-image" src="https://ksr-ugc.imgix.net/assets/005/910/640/969b21adeb64c9be022c760e07ee7521_original.jpg?w=220&amp;h=220&amp;fit=crop&amp;v=1497998306&amp;auto=format&amp;q=92&amp;s=34bb50ea43724096571417342c5542b4" width="220" height="220">
+    </div>
+    <div>
+      <h2>{{user.name}} {{user.lastName}}</h2>
+      <p>
+        <span>{{user.backedProjects}} Proyectos Backeados</span>
+        <span class="divider">·</span>
+        <span><a target="_blank" href="https://www.kickstarter.com/discover/advanced?woe_id=468052&backed=-1&sort=magic&seed=2500575&page=1">{{user.location}}</a></span>
+        <span class="divider">·</span>
+        <span>Miembro desde {{user.joined}}</span>
+      </p>
+      <div style="border: 0; border-radius: 6px;">
+        <button class="btn btn-secondary"  style="width: 140px">Seguir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <ngb-tabset>
+    <ngb-tab title="Acerca">
+      <ng-template ngbTabContent>
+        <label><strong>Bibliography</strong></label>
+        <p>{{user.biography}}</p>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Projectos Backeados">
+      <ng-template ngbTabContent>
+        <div class="row">
+          <app-mini-project *ngFor="let project of projectsBacked" [project]="project"></app-mini-project>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Proyectos Creados">
+      <ng-template ngbTabContent>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Comentarios">
+      <ng-template ngbTabContent>
+      </ng-template>
+    </ngb-tab>
+
+  </ngb-tabset>
+</div>

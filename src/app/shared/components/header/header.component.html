@@ -1,0 +1,58 @@
+<div class="pos-f-t fixed-top header">
+    <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
+        <button class="navbar-toggler navbar-toggler-right" (click)="toggleSidebar()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" [routerLink]="['/dashboard']"><img src="{{assetsUrl}}/images/backeame.png" alt="Backeame" style="height: 68px; width: auto;"></a>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" [routerLink]="['/dashboard']">{{ 'Empieza tu proyecto' | translate }}</a>
+                <a class="nav-item nav-link" [routerLink]="['/dashboard']">{{ '¿Que es Crowdfounding?' | translate }}</a>
+                <a class="nav-item nav-link" [routerLink]="['/category']">{{ 'Explorar' | translate }}</a>
+                <a class="nav-item nav-link" (click)="isSearchCollapsed = !isSearchCollapsed" [routerLink]="['/dashboard']"
+                   [attr.aria-expanded]="!isSearchCollapsed" aria-controls="searchBarContainer"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </div>
+
+            <ul class="navbar-nav ml-auto mt-2 mt-md-0">&nbsp;&nbsp;
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                        <i class="fa fa-money"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="javascript:void(0)">{{ 'Pesos Uruguayos' | translate }}</a>
+                        <a class="dropdown-item" href="javascript:void(0)">{{ 'Pesos Argentinos' | translate }}</a>
+                        <a class="dropdown-item" href="javascript:void(0)">{{ 'Dolares' | translate }}</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                        <i class="fa fa-language"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('es')">Español</a>
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('en')">Inglés</a>
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('fr')">Francés</a>
+                        <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('ur')">Urdu</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown profile-dropdown" ngbDropdown>
+                    <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                        <i class="fa fa-user"></i> John Smith <b class="caret"></b>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" [routerLink]="['/settings']"><i class="fa fa-fw fa-gear"></i> {{ 'Ajustes' | translate }} </a>
+                        <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()"><i class="fa fa-fw fa-power-off"></i> {{ 'Cerrar Sesion' | translate }} </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="searchBarContainer" [ngbCollapse]="isSearchCollapsed" style="background-color: lightgray">
+        <div class="container" style="background-color: transparent;text-align: center">
+            <form class="form-group" style="padding-top: 15px;padding-bottom: 15px">
+                <input class="form-control" type="text" placeholder="{{ 'Buscar' | translate }}">
+            </form>
+        </div>
+    </div>
+</div>
+

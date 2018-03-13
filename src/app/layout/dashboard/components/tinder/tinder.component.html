@@ -1,0 +1,56 @@
+<div *ngIf="tinderProject" class="container-fluid-gray-tinder">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3"></div>
+      <div class="col-xl-6">
+        <div class="row">
+          <div class="col-xl-2"></div>
+          <div class="col-xl-8">
+            <img src="{{assetsUrl}}/images/project1.jpg" style="width: 100%" alt="">
+            <div class="row">
+              <div class="col-xl-2">
+                <button type="button" (click)="callTinderProject()" class="btn btn-warning btn-circle btn-lg btn-left-ban"><i class="fa fa-ban"></i></button>
+              </div>
+              <div class="col-xl-8">
+                <br>
+                <h3><a [routerLink]="['/project', tinderProject.urlComponent]" [queryParams]="{ id: tinderProject.id }">{{tinderProject.title}}</a></h3>
+                <p>Autor: <a [routerLink]="['/profile', tinderProject.entrepreneur]">{{tinderProject.entrepreneur}}</a></p>
+                <p class="small">{{tinderProject.briefDesc}}</p>
+                <a href="https://www.kickstarter.com/discover/places/stockholm-stockholm-se">
+                  <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                  <span>{{tinderProject.location}}</span>
+                </a>
+                <div style="background-color: #F1EEEA;overflow: hidden;margin-bottom: 10px;">
+                  <div [style.width]="tinderProject.percentageFunded+'%'" style="background-color: #09afdf;height:5px;"></div>
+                </div>
+                <ul class="custom-bullets-tinder">
+                  <li>
+                    <div><i class="fa fa-battery-three-quarters" aria-hidden="true"></i><strong>&nbsp; {{tinderProject.percentageFunded}}%</strong> {{'financiado' | translate}}</div>
+                  </li>
+
+                  <li>
+                    <div><i class="fa fa-money" aria-hidden="true"></i><strong>&nbsp; {{tinderProject.amountPledged}}</strong> {{'recaudado' | translate}}</div>
+                  </li>
+                  <li>
+                    <div><i class="fa fa-clock-o" aria-hidden="true"></i><strong>&nbsp; {{tinderProject.daysToGo}} {{'dias' | translate}}</strong> {{'para terminar' | translate}}</div>
+                  </li>
+                  <li>
+                    <div><i class="fa fa-eye" aria-hidden="true"></i><strong>&nbsp; {{tinderProject.visits}}</strong> {{'visitas' | translate}}</div>
+                  </li>
+                  <li>
+                    <div><i class="fa fa-thumbs-up" aria-hidden="true"></i><strong>&nbsp; {{tinderProject.likes}}</strong> {{'me gusta' | translate}}</div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-xl-2">
+                <button type="button" (click)="callTinderLike()" class="btn btn-info btn-circle btn-lg btn-right-check"><i class="fa fa-check"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2"></div>
+        </div>
+      </div>
+      <div class="col-xl-3"></div>
+    </div>
+  </div>
+</div>

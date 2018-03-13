@@ -1,0 +1,41 @@
+<div class="card card-info card-inverse">
+  <div class="card-header card-info">
+    Invertir ${{reward.price}} o más
+  </div>
+  <div class="card-block bg-white">
+    <p class="reward-title">{{reward.title}}</p>
+    <small>{{reward.message}}</small>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <small>ESTIMATED DELIVERY</small>
+        <p>{{reward.estimatedDelivery}}</p>
+      </div>
+      <div class="col-sm-6">
+        <small>SHIPS TO</small>
+        <p>{{reward.shipsTo}}</p>
+      </div>
+    </div>
+
+    <small>{{reward.backerAmount}} backers</small>
+
+    <hr>
+
+    <label for="selectShipTo">Ship to</label>
+    <select class="form-control" name="" id="selectShipTo">
+      <option value="">Uruguay</option>
+      <option value="">Argentina</option>
+    </select>
+
+    <div class="form-group input-group pledge-input">
+      <span class="input-group-addon"><i class="fa fa-eur"></i></span>
+      <input type="number" class="form-control" placeholder="Cantidad">
+    </div>
+    
+    <button [routerLink]= "['/checkout', reward.id]" [queryParams]="{ projId: projectFull.id }" class="btn btn-success form-control">Continuar</button>
+
+  </div>
+</div>
+<br>

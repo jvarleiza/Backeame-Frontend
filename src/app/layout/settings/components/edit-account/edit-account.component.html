@@ -1,0 +1,35 @@
+<form (ngSubmit)="accountSettingForm.form.valid && saveAccount()" #accountSettingForm="ngForm">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-content">
+                <div class="form-group">
+                    <label for="accountEmail">Email</label>
+                    <input class="form-control" id="accountEmail" type="email" name="accountModel.email"  [(ngModel)]="accountModel.email" required/>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-outline-primary"  type="button" (click)="isCollapsed = !isCollapsed"
+                            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">Cambiar contraseña</button>
+                </div>
+
+                <div id="collapseExample" [ngbCollapse]="isCollapsed">
+                    <div class="form-group">
+                        <label for="txtNewPassword">Nueva Contraseña</label>
+                        <input [(ngModel)]="accountModel.newPassword" name="accountModel.newPassword" class="form-control" type="password" id="txtNewPassword" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtConfirmPassword">Confirmar Contraseña</label>
+                        <input [(ngModel)]="accountModel.confirmPassword" name="accountModel.confirmPassword" class="form-control" type="password" id="txtConfirmPassword" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="txtPassword">Ingrese su contraseña actual para realizar los cambios</label>
+                    <input [(ngModel)]="accountModel.password" name="accountModel.password" type="password" class="form-control" id="txtPassword" required>
+                </div>
+            </div>
+            <button class="btn btn-primary" [disabled]="!accountSettingForm.form.valid"> Guardar cambios </button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,33 @@
+<div class="card mini-project-card">
+  <div class="card-block">
+    <img src="{{assetsUrl}}/images/project1.jpg" style="width: 100%" alt="">
+    <h3><a  [routerLink]="['/project', project.urlComponent]" [queryParams]="{ id: project.id }">{{project.title}}</a></h3>
+    <p>Autor: <a [routerLink]="['/profile', project.entrepreneur]">{{project.entrepreneur}}</a></p>
+    <p class="small">{{project.briefDesc}}</p>
+    <a href="https://www.kickstarter.com/discover/places/stockholm-stockholm-se">
+      <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+      <span>{{project.location}}</span>
+    </a>
+    <div style="background-color: #F1EEEA;overflow: hidden;margin-bottom: 10px;">
+      <div [style.width]="project.percentageFunded+'%'" style="background-color: #09afdf;height:5px;"></div>
+    </div>
+    <ul class="custom-bullets-mini-project">
+      <li>
+        <div><i class="fa fa-battery-three-quarters" aria-hidden="true"></i><strong>&nbsp; {{project.percentageFunded}}%</strong> {{'financiado' | translate}}</div>
+      </li>
+
+      <li>
+        <div><i class="fa fa-money" aria-hidden="true"></i><strong>&nbsp; {{project.amountPledged}}</strong> {{'recaudado' | translate}}</div>
+      </li>
+      <li>
+        <div><i class="fa fa-clock-o" aria-hidden="true"></i><strong>&nbsp; {{project.daysToGo}} {{'días' | translate}}</strong> {{'para terminar' | translate}}</div>
+      </li>
+      <li>
+        <div><i class="fa fa-eye" aria-hidden="true"></i><strong>&nbsp; {{project.visits}}</strong> {{'visitas' | translate}}</div>
+      </li>
+      <li>
+        <div><i class="fa fa-thumbs-up" aria-hidden="true"></i><strong>&nbsp; {{project.likes}}</strong> {{'me gusta' | translate}}</div>
+      </li>
+    </ul>
+  </div>
+</div>

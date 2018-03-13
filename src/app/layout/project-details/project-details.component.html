@@ -1,0 +1,75 @@
+<div *ngIf="projectFull" class="container">
+  <div class="main-container-project-details">
+    <h1>{{projectFull.title}}</h1>
+    <p>{{projectFull.briefDesc}}</p>
+    <div class="row">
+      <div class="col-md-8">
+          <img class="img-thumbnail" src="http://placehold.it/680x409" alt="">
+      </div>
+      <div class="col-md-4">
+        <div style="background-color: #F1EEEA;overflow: hidden;margin-bottom: 10px;">
+          <div [style.width]="projectFull.percentageFunded+'%'" style="background-color: #09afdf;height:5px;"></div>
+        </div>
+        <p>{{projectFull.percentageFunded}}% Financiado</p>
+        <p>Recaudado: ${{projectFull.amountPledged}}</p>
+        <p>Backers: {{projectFull.backerAmount}}</p>
+        <p>Días restantes: {{projectFull.daysToGo}}</p>
+        <button [routerLink]="['/project/rewards', projectFull.urlComponent]" [queryParams]="{ id: projectFull.id }" class="btn btn-primary full-width-element">Backear Proyecto</button>
+        <div class="row">
+          <button class="btn btn-secondary half-width-element">Agregar a favoritos</button>
+          <button class="btn btn-secondary half-width-element">Me gusta</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <a *ngFor="let category of projectFull.categories" [routerLink]="['/category']" [queryParams]="{ id: category.id }" class="btn btn-outline-secondary">{{category.name}}</a>
+    </div>
+  </div>
+
+  <br>
+
+  <ngb-tabset class="full-width-element">
+
+    <ngb-tab title="Campaña">
+      <ng-template ngbTabContent>
+        <div class="row project-tab-body">
+          <div class="col-md-8">
+            <h2>Acerca de este proyecto</h2>
+            <img class="img-thumbnail" src="http://placehold.it/680x409" alt="">
+            <p>You never have to brush your teeth again!</p>
+            <p>Amabrush is the world's first, fully automatic toothbrush. This patent pending device brushes all your teeth at once, fully automatic, and finishes in just ten seconds. All you have to do is press a single button, wait ten seconds, and you’ll have perfectly clean teeth!</p>
+          </div>
+          <div class="col-md-4">
+            <h2>Ayuda a este proyecto</h2>
+            <app-project-reward *ngFor="let reward of projectFull.rewards" [projectFull]="projectFull" [reward]="reward"></app-project-reward>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Preguntas Frecuentes">
+      <ng-template ngbTabContent>
+        <div class="row project-tab-body">
+          <app-project-faqs class="full-width-element"></app-project-faqs>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Actualizaciones">
+      <ng-template ngbTabContent>
+        <div class="row project-tab-body">
+          <app-timeline></app-timeline>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+    <ngb-tab title="Comentarios">
+      <ng-template ngbTabContent>
+        <div class="row project-tab-body">
+          <app-chat class="full-width-element"></app-chat>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+  </ngb-tabset>
+</div>

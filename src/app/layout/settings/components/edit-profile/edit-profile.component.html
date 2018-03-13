@@ -1,0 +1,35 @@
+<form (ngSubmit)="profileSettingForm.form.valid && saveProfile()" #profileSettingForm="ngForm">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-content">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input [(ngModel)]="profile.name" class="form-control" id="name" type="email" name="profile.name" required/>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Apellido</label>
+          <input [(ngModel)]="profile.lastName" class="form-control" id="lastName" type="email" name="profile.lastName"   required/>
+        </div>
+        <div class="form-group">
+          <label for="txtBiography">Bibliografía</label>
+          <textarea [(ngModel)]="profile.biography" name="profile.biography" class="form-control" id="txtBiography" ></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-content">
+        <fieldset class="form-group">
+          <label for="profileImage">Imagen</label>
+          <input type="file" class="form-control form-control-file" id="profileImage">
+        </fieldset>
+        <div class="form-group">
+          <label for="lastName">Ubicación</label>
+          <input [(ngModel)]="profile.location" placeholder="E.g. Brooklyn, NY" class="form-control" id="location" type="text" name="profile.location"   required/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+  <button class="btn btn-primary" [disabled]="!profileSettingForm.form.valid"> Guardar cambios </button>
+</form>
